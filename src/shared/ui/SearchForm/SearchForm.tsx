@@ -9,6 +9,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center; /* Center the form elements */
 `;
 
 const Input = styled.input<{ hasError: boolean }>`
@@ -16,6 +17,7 @@ const Input = styled.input<{ hasError: boolean }>`
   font-size: 16px;
   border: 1px solid ${(props) => (props.hasError ? "#ff0000" : "#ccc")};
   border-radius: 4px;
+  width: 50%;
 `;
 
 const ErrorText = styled.div`
@@ -31,6 +33,7 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 200px;
   &:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
