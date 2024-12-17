@@ -18,7 +18,7 @@ export const searchOrganization = createAsyncThunk(
       if (error instanceof Error) {
         dispatch(setError(error.message));
       } else {
-        dispatch(setError("An unknown error occurred"));
+        dispatch(setError("Организация не найдена"));
       }
       dispatch(setLoading(false));
       return rejectWithValue(error);
