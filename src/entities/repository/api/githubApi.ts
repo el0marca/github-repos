@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Repository } from "../types/repository";
 
-const BASE_URL = "https://api.github.com";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const PER_PAGE = 10;
 
 export const githubApi = {
