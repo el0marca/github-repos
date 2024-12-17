@@ -1,7 +1,7 @@
-import React from 'react'
-import { useAppSelector, useAppDispatch } from '@/shared/hooks/hooks'
-import { setCurrentPage } from '@/entities/repository/model/repositorySlice'
-import styled from 'styled-components'
+import React from "react";
+import { useAppSelector, useAppDispatch } from "@/shared/hooks";
+import { setCurrentPage } from "@/entities/repository";
+import styled from "styled-components";
 
 const Table = styled.table`
   width: 100%;
@@ -35,9 +35,9 @@ const PageButton = styled.button<{ active: boolean }>`
   background: none;
   cursor: pointer;
   border-radius: 4px;
-  background-color: ${({ active }) => (active ? '#0066cc' : 'none')};
-  color: ${({ active }) => (active ? 'white' : 'inherit')};
-  border-color: ${({ active }) => (active ? '#0066cc' : '#ccc')};
+  background-color: ${({ active }) => (active ? "#0066cc" : "none")};
+  color: ${({ active }) => (active ? "white" : "inherit")};
+  border-color: ${({ active }) => (active ? "#0066cc" : "#ccc")};
 
   &:hover:not(.active) {
     background-color: #e6e6e6;
@@ -45,14 +45,17 @@ const PageButton = styled.button<{ active: boolean }>`
 `;
 
 const ReposTable: React.FC = () => {
-  const dispatch = useAppDispatch()
-  const { items: repositories, currentPage, totalPages, currentOrg } = useAppSelector(
-    state => state.repository
-  )
+  const dispatch = useAppDispatch();
+  const {
+    items: repositories,
+    currentPage,
+    totalPages,
+    currentOrg,
+  } = useAppSelector((state) => state.repository);
 
   const handlePageChange = (page: number) => {
-    dispatch(setCurrentPage(page))
-  }
+    dispatch(setCurrentPage(page));
+  };
 
   return (
     <div>
@@ -67,15 +70,19 @@ const ReposTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {repositories.map(repo => (
+          {repositories.map((repo) => (
             <tr key={repo.id}>
               <Td>
-                <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {repo.name}
                 </a>
               </Td>
-              <Td>{repo.description || '-'}</Td>
-              <Td>{repo.language || '-'}</Td>
+              <Td>{repo.description || "-"}</Td>
+              <Td>{repo.language || "-"}</Td>
               <Td>{repo.stargazers_count}</Td>
             </tr>
           ))}
@@ -93,7 +100,7 @@ const ReposTable: React.FC = () => {
         ))}
       </Pagination>
     </div>
-  )
-}
+  );
+};
 
-export default ReposTable 
+export default ReposTable;

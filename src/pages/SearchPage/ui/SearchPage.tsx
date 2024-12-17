@@ -1,14 +1,24 @@
 import React from 'react'
-import styles from './SearchPage.module.css'
+import styled from 'styled-components'
 import SearchForm from '@/shared/ui/SearchForm/SearchForm'
+
+const Container = styled.div`
+  padding: 20px;
+  text-align: center;
+`
+
+const Title = styled.h1`
+  font-size: 24px;
+  margin-bottom: 20px;
+`
 
 const SearchPage: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <h1>GitHub Организации Репозитории</h1>
+    <Container>
+      <Title>GitHub Организации Репозитории</Title>
       <SearchForm />
-    </div>
+    </Container>
   )
 }
 
-export default SearchPage 
+export default SearchPage
