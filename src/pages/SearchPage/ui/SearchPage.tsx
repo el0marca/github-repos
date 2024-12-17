@@ -15,7 +15,7 @@ const Title = styled.h1`
 const SearchPage: React.FC = () => {
   return (
     <Container>
-      <Title>GitHub Организации Репозитории</Title>
+      <Title>Репезитории GitHub организаций</Title>
       <SearchForm />
     </Container>
   )
